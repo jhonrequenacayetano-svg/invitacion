@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Invitación de Promoción</title>
+
+    <style>
+        body {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .inicio {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .inicio h1 {
+            color: white;
+            font-size: 26px;
+            text-align: center;
+            animation: parpadeo 1.5s infinite;
+        }
+
+        @keyframes parpadeo {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .invitacion {
+            background-color: white;
+            width: 90%;
+            max-width: 400px;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            display: none;
+            animation: aparecer 1s ease;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            color: #2a5298;
+        }
+
+        h2 {
+            color: #444;
+        }
+
+        p {
+            color: #555;
+        }
+
+        .fecha {
+            margin: 20px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<audio id="musica" loop>
+    <source src="musica.mp3.mp3" type="audio/mpeg">
+</audio>
+
+<div class="inicio" onclick="iniciar()">
+    <h1>🎶 Toca para entrar 🎓</h1>
+</div>
+
+<div class="invitacion" id="contenido">
+    <h1>🎓 Invitación de Promoción 🎓</h1>
+    <h2>Promoción 2025</h2>
+
+    <p>
+        Tenemos el honor de invitarte a celebrar
+        nuestra ceremonia de promoción.
+    </p>
+
+    <div class="fecha">
+        📅 Fecha: 15 de diciembre de 2025 <br>
+        ⏰ Hora: 6:00 p.m. <br>
+        📍 Lugar: Auditorio Principal
+    </div>
+
+    <p>¡Te esperamos!</p>
+</div>
+
+<script>
+    function iniciar() {
+        const audio = document.getElementById("musica");
+        const inicio = document.querySelector(".inicio");
+        const contenido = document.getElementById("contenido");
+
+        audio.play();
+        inicio.style.display = "none";
+        contenido.style.display = "block";
+    }
+</script>
+
+</body>
+</html>
